@@ -4,13 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Cơ chế: 
+1. Provider gọi api từ BusinessService -> safeCall ở BusinessService bắt lỗi Expired Token và call Refresh bằng refresh_token
+1.1 Nếu refresh thành công sẽ được trả về refresh_token và access_token mới, lưu lại và gọi lại api đã bị thất bại một lân nữa với token mới.
+1.2 Nếu refresh thất bại lần thứ 2(api refresh bị Expired Token, tức là cả 2 token đều expired) => dùng navigator key để văng app ra màn hình đăng nhập
